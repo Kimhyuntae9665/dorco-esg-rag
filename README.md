@@ -99,3 +99,9 @@ python -X utf8 scripts/http_checks.py
 - 김현태의 채용 포트폴리오용 개인 PoC이며 **Codex의 조사·코드 작성·검토 지원으로 제작**했습니다. 사용자 요구와 과제 선정, 구현·측정 산출물을 보여주며 모든 코드를 수작업 단독 작성한 경력으로 주장하지 않습니다.
 
 코드는 MIT 라이선스입니다. 외부 문서·모델에는 각 제공자의 권리와 조건이 적용됩니다. 도루코·이수시스템과의 협업이나 공식 제품을 뜻하지 않습니다.
+
+## 사용한 오픈소스 구성
+
+![실제 오픈소스 구성](docs/architecture/opensource-stack.png)
+
+위쪽은 PyMuPDF → multilingual-E5-small → NumPy → Qwen2.5의 의미 검색 RAG 경로입니다. 아래쪽은 Python·PyTorch·Hugging Face 라이브러리의 공통 실행 기반입니다. [도구별 역할과 로고 출처](docs/architecture/README.md)를 확인할 수 있습니다.
