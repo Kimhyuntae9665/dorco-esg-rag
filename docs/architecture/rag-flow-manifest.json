@@ -56,7 +56,7 @@
     "A": "Question plus top-3 chunk text[:700] and chunk IDs assembled into prompt",
     "G": "Local Qwen2.5-1.5B-Instruct generation followed by citation ID-to-source mapping",
     "qwen_family_mark_reused": true,
-    "sha256": "07a3b5156e8e1b5202af9ebcd2657050ffee8cf612414ed8d136794abc8d353d",
+    "sha256": "aa07263665e9bdc53be8e8a29a85c1b4b7e0dc8d2c6b2c3293f636a1497d23a4",
     "renderer": "Existing CairoSVG",
     "diagram_requirement": "User explicitly requested RAG labels and working boundaries inside schematic; descriptions placed outside white logo cards"
   }

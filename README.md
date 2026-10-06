@@ -104,7 +104,7 @@ python -X utf8 scripts/http_checks.py
 
 ![RAG 작동 구간](docs/architecture/rag-flow.png)
 
-청록색 경계가 질문을 받을 때 수행하는 RAG입니다. R은 관련 문서 검색, A는 질문에 검색한 본문과 조각 ID를 추가하는 과정, G는 이 입력을 Qwen이 읽고 답변을 생성하는 과정입니다. [사전 준비와 질문 처리의 연결](docs/architecture/rag-flow.md)을 확인할 수 있습니다.
+청록색 경계가 질문할 때 작동하는 RAG입니다. **문서 찾기 → 찾은 내용 붙이기 → AI 답변**으로 읽으면 됩니다. 질문에 맞는 자료를 먼저 찾고, 그 내용을 질문과 함께 AI에게 보내 답하게 합니다. [쉬운 설명과 구현 상세](docs/architecture/readability.md)를 확인할 수 있습니다.
 
 ## 사용한 오픈소스 구성
 
