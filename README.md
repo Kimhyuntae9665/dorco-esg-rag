@@ -100,6 +100,12 @@ python -X utf8 scripts/http_checks.py
 
 코드는 MIT 라이선스입니다. 외부 문서·모델에는 각 제공자의 권리와 조건이 적용됩니다. 도루코·이수시스템과의 협업이나 공식 제품을 뜻하지 않습니다.
 
+## RAG는 어디서 작동하나요?
+
+![RAG 작동 구간](docs/architecture/rag-flow.png)
+
+청록색 경계가 질문을 받을 때 수행하는 RAG입니다. R은 관련 문서 검색, A는 질문에 검색한 본문과 조각 ID를 추가하는 과정, G는 이 입력을 Qwen이 읽고 답변을 생성하는 과정입니다. [사전 준비와 질문 처리의 연결](docs/architecture/rag-flow.md)을 확인할 수 있습니다.
+
 ## 사용한 오픈소스 구성
 
 ![실제 오픈소스 구성](docs/architecture/opensource-stack.png)
