@@ -1,0 +1,4723 @@
+{
+  "ready": true,
+  "generated_at": "2026-10-06T05:53:12.504313+00:00",
+  "scope": "두 공개 PDF의 소규모 자체 검색 평가. 최초 평가 후 원문 대조로 기초/심화 중복 정답 페이지를 보완한 v2. 독립 또는 미접촉 holdout 벤치마크가 아니며 LLM 답변 정확도를 평가하지 않음.",
+  "dataset_version": 2,
+  "configuration": {
+    "top_k": 5,
+    "metric_definition": "mrr_at_k, no top-k hit scores zero",
+    "same_corpus": true,
+    "page_deduplication": true,
+    "rrf_constant": 60,
+    "rrf_candidates": 100,
+    "dense_similarity": "normalized_cosine",
+    "embedding": {
+      "id": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "license": "MIT",
+      "local_path": "../model-cache/multilingual-e5-small",
+      "dimension": 384,
+      "prefixes": [
+        "query: ",
+        "passage: "
+      ],
+      "max_tokens": 512,
+      "repository": "https://huggingface.co/intfloat/multilingual-e5-small",
+      "weights_sha256": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    },
+    "dev_calibration": "No parameter tuning performed",
+    "seed": 0,
+    "deterministic_rank_ties": "stable corpus order",
+    "python": "3.13.7",
+    "generation_scored": false
+  },
+  "methods": {
+    "bm25": {
+      "dev": {
+        "n": 6,
+        "page_hit_at_1": 0.6666666666666666,
+        "page_hit_at_5": 0.6666666666666666,
+        "mrr": 0.6666666666666666,
+        "by_language": {
+          "en": {
+            "n": 2,
+            "page_hit_at_1": 0.5,
+            "page_hit_at_5": 0.5,
+            "mrr": 0.5
+          },
+          "ko": {
+            "n": 3,
+            "page_hit_at_1": 1.0,
+            "page_hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "vi": {
+            "n": 1,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          }
+        }
+      },
+      "test": {
+        "n": 24,
+        "page_hit_at_1": 0.375,
+        "page_hit_at_5": 0.4166666666666667,
+        "mrr": 0.3958333333333333,
+        "by_language": {
+          "en": {
+            "n": 8,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "ko": {
+            "n": 12,
+            "page_hit_at_1": 0.75,
+            "page_hit_at_5": 0.8333333333333334,
+            "mrr": 0.7916666666666666
+          },
+          "vi": {
+            "n": 4,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          }
+        }
+      }
+    },
+    "dense": {
+      "dev": {
+        "n": 6,
+        "page_hit_at_1": 0.3333333333333333,
+        "page_hit_at_5": 0.8333333333333334,
+        "mrr": 0.5055555555555555,
+        "by_language": {
+          "en": {
+            "n": 2,
+            "page_hit_at_1": 0.5,
+            "page_hit_at_5": 1.0,
+            "mrr": 0.6
+          },
+          "ko": {
+            "n": 3,
+            "page_hit_at_1": 0.3333333333333333,
+            "page_hit_at_5": 1.0,
+            "mrr": 0.611111111111111
+          },
+          "vi": {
+            "n": 1,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          }
+        }
+      },
+      "test": {
+        "n": 24,
+        "page_hit_at_1": 0.4583333333333333,
+        "page_hit_at_5": 0.5833333333333334,
+        "mrr": 0.4979166666666666,
+        "by_language": {
+          "en": {
+            "n": 8,
+            "page_hit_at_1": 0.125,
+            "page_hit_at_5": 0.25,
+            "mrr": 0.15
+          },
+          "ko": {
+            "n": 12,
+            "page_hit_at_1": 0.8333333333333334,
+            "page_hit_at_5": 0.8333333333333334,
+            "mrr": 0.8333333333333334
+          },
+          "vi": {
+            "n": 4,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.5,
+            "mrr": 0.1875
+          }
+        }
+      }
+    },
+    "hybrid": {
+      "dev": {
+        "n": 6,
+        "page_hit_at_1": 0.6666666666666666,
+        "page_hit_at_5": 0.6666666666666666,
+        "mrr": 0.6666666666666666,
+        "by_language": {
+          "en": {
+            "n": 2,
+            "page_hit_at_1": 0.5,
+            "page_hit_at_5": 0.5,
+            "mrr": 0.5
+          },
+          "ko": {
+            "n": 3,
+            "page_hit_at_1": 1.0,
+            "page_hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "vi": {
+            "n": 1,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          }
+        }
+      },
+      "test": {
+        "n": 24,
+        "page_hit_at_1": 0.4166666666666667,
+        "page_hit_at_5": 0.4583333333333333,
+        "mrr": 0.4270833333333333,
+        "by_language": {
+          "en": {
+            "n": 8,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.125,
+            "mrr": 0.03125
+          },
+          "ko": {
+            "n": 12,
+            "page_hit_at_1": 0.8333333333333334,
+            "page_hit_at_5": 0.8333333333333334,
+            "mrr": 0.8333333333333334
+          },
+          "vi": {
+            "n": 4,
+            "page_hit_at_1": 0.0,
+            "page_hit_at_5": 0.0,
+            "mrr": 0.0
+          }
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "dev-ko-01",
+      "split": "dev",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        90
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 4.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 63.216076
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 62.071728
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p097:c01",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 51.034439
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p091:c01",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 44.409509
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p095:c01",
+          "doc_id": "kesg_supply",
+          "page": 95,
+          "score": 44.162943
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-01",
+      "split": "dev",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        90
+      ],
+      "first_relevant_rank": 3,
+      "elapsed_ms": 48.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p093:c02",
+          "doc_id": "kesg_supply",
+          "page": 93,
+          "score": 0.863761
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p221:c02",
+          "doc_id": "kesg_supply",
+          "page": 221,
+          "score": 0.855448
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.855402
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 0.854503
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p097:c02",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 0.854331
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-01",
+      "split": "dev",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        90
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 34.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.032266
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 0.031754
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p093:c02",
+          "doc_id": "kesg_supply",
+          "page": 93,
+          "score": 0.031319
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p097:c01",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 0.031025
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p095:c01",
+          "doc_id": "kesg_supply",
+          "page": 95,
+          "score": 0.029857
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-02",
+      "split": "dev",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        130,
+        131
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 3.8,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p131:c02",
+          "doc_id": "kesg_supply",
+          "page": 131,
+          "score": 28.46733
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p130:c01",
+          "doc_id": "kesg_supply",
+          "page": 130,
+          "score": 27.380551
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p225:c01",
+          "doc_id": "kesg_supply",
+          "page": 225,
+          "score": 16.023039
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p078:c01",
+          "doc_id": "kesg_supply",
+          "page": 78,
+          "score": 16.004547
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p033:c01",
+          "doc_id": "kesg_supply",
+          "page": 33,
+          "score": 15.960012
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-02",
+      "split": "dev",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        130,
+        131
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 30.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p131:c01",
+          "doc_id": "kesg_supply",
+          "page": 131,
+          "score": 0.861953
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p130:c01",
+          "doc_id": "kesg_supply",
+          "page": 130,
+          "score": 0.85691
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p220:c02",
+          "doc_id": "kesg_supply",
+          "page": 220,
+          "score": 0.835796
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p225:c01",
+          "doc_id": "kesg_supply",
+          "page": 225,
+          "score": 0.832998
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p237:c03",
+          "doc_id": "kesg_supply",
+          "page": 237,
+          "score": 0.829053
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-02",
+      "split": "dev",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        130,
+        131
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 32.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p131:c02",
+          "doc_id": "kesg_supply",
+          "page": 131,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p130:c01",
+          "doc_id": "kesg_supply",
+          "page": 130,
+          "score": 0.032002
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p225:c01",
+          "doc_id": "kesg_supply",
+          "page": 225,
+          "score": 0.030777
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p239:c01",
+          "doc_id": "kesg_supply",
+          "page": 239,
+          "score": 0.027619
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p237:c03",
+          "doc_id": "kesg_supply",
+          "page": 237,
+          "score": 0.02712
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-03",
+      "split": "dev",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        148,
+        149
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 6.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p148:c01",
+          "doc_id": "kesg_supply",
+          "page": 148,
+          "score": 48.798571
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p149:c01",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 41.093194
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p173:c01",
+          "doc_id": "kesg_supply",
+          "page": 173,
+          "score": 29.989025
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p161:c02",
+          "doc_id": "kesg_supply",
+          "page": 161,
+          "score": 29.319823
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p257:c01",
+          "doc_id": "kesg_supply",
+          "page": 257,
+          "score": 25.492582
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-03",
+      "split": "dev",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        148,
+        149
+      ],
+      "first_relevant_rank": 2,
+      "elapsed_ms": 31.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p151:c01",
+          "doc_id": "kesg_supply",
+          "page": 151,
+          "score": 0.888082
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p149:c02",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 0.885364
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p148:c02",
+          "doc_id": "kesg_supply",
+          "page": 148,
+          "score": 0.879967
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p173:c01",
+          "doc_id": "kesg_supply",
+          "page": 173,
+          "score": 0.872983
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p163:c04",
+          "doc_id": "kesg_supply",
+          "page": 163,
+          "score": 0.871572
+        }
+      ]
+    },
+    {
+      "id": "dev-ko-03",
+      "split": "dev",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        148,
+        149
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 42.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p149:c02",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 0.032002
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p148:c01",
+          "doc_id": "kesg_supply",
+          "page": 148,
+          "score": 0.031545
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p151:c01",
+          "doc_id": "kesg_supply",
+          "page": 151,
+          "score": 0.030886
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p173:c01",
+          "doc_id": "kesg_supply",
+          "page": 173,
+          "score": 0.03055
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p172:c01",
+          "doc_id": "kesg_supply",
+          "page": 172,
+          "score": 0.02879
+        }
+      ]
+    },
+    {
+      "id": "dev-en-01",
+      "split": "dev",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 2.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 39.889801
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 21.920839
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p016:c01",
+          "doc_id": "dorco_profile",
+          "page": 16,
+          "score": 18.540187
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 16.382215
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 12.569394
+        }
+      ]
+    },
+    {
+      "id": "dev-en-01",
+      "split": "dev",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 33.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 0.879297
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p032:c01",
+          "doc_id": "dorco_profile",
+          "page": 32,
+          "score": 0.828902
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.824863
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p003:c01",
+          "doc_id": "dorco_profile",
+          "page": 3,
+          "score": 0.803422
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p004:c01",
+          "doc_id": "dorco_profile",
+          "page": 4,
+          "score": 0.803202
+        }
+      ]
+    },
+    {
+      "id": "dev-en-01",
+      "split": "dev",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 34.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p032:c01",
+          "doc_id": "dorco_profile",
+          "page": 32,
+          "score": 0.030415
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p016:c01",
+          "doc_id": "dorco_profile",
+          "page": 16,
+          "score": 0.029762
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.029412
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p013:c01",
+          "doc_id": "dorco_profile",
+          "page": 13,
+          "score": 0.029236
+        }
+      ]
+    },
+    {
+      "id": "dev-en-02",
+      "split": "dev",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 2.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 22.947645
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 13.05719
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p015:c02",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 12.41414
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 11.72826
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 11.121916
+        }
+      ]
+    },
+    {
+      "id": "dev-en-02",
+      "split": "dev",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": 5,
+      "elapsed_ms": 23.8,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.792755
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.792476
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p014:c01",
+          "doc_id": "dorco_profile",
+          "page": 14,
+          "score": 0.787721
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p009:c01",
+          "doc_id": "dorco_profile",
+          "page": 9,
+          "score": 0.787606
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p177:c03",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.783653
+        }
+      ]
+    },
+    {
+      "id": "dev-en-02",
+      "split": "dev",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 24.3,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p015:c02",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 0.029572
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.02782
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p017:c01",
+          "doc_id": "dorco_profile",
+          "page": 17,
+          "score": 0.026387
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p011:c01",
+          "doc_id": "dorco_profile",
+          "page": 11,
+          "score": 0.026145
+        }
+      ]
+    },
+    {
+      "id": "dev-vi-01",
+      "split": "dev",
+      "language": "vi",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 3.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 21.408354
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p091:c02",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 14.636982
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p023:c01",
+          "doc_id": "dorco_profile",
+          "page": 23,
+          "score": 9.31242
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p015:c01",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 7.902087
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p029:c01",
+          "doc_id": "dorco_profile",
+          "page": 29,
+          "score": 7.616817
+        }
+      ]
+    },
+    {
+      "id": "dev-vi-01",
+      "split": "dev",
+      "language": "vi",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 20.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p118:c02",
+          "doc_id": "kesg_supply",
+          "page": 118,
+          "score": 0.813474
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p120:c01",
+          "doc_id": "kesg_supply",
+          "page": 120,
+          "score": 0.812492
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p089:c03",
+          "doc_id": "kesg_supply",
+          "page": 89,
+          "score": 0.811402
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.807695
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p035:c01",
+          "doc_id": "kesg_supply",
+          "page": 35,
+          "score": 0.806169
+        }
+      ]
+    },
+    {
+      "id": "dev-vi-01",
+      "split": "dev",
+      "language": "vi",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 30.8,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p122:c01",
+          "doc_id": "kesg_supply",
+          "page": 122,
+          "score": 0.027206
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p079:c02",
+          "doc_id": "kesg_supply",
+          "page": 79,
+          "score": 0.022548
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p077:c02",
+          "doc_id": "kesg_supply",
+          "page": 77,
+          "score": 0.022195
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p175:c03",
+          "doc_id": "kesg_supply",
+          "page": 175,
+          "score": 0.021603
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.019869
+        }
+      ]
+    },
+    {
+      "id": "test-ko-01",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 6.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p036:c01",
+          "doc_id": "kesg_supply",
+          "page": 36,
+          "score": 44.589077
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p092:c01",
+          "doc_id": "kesg_supply",
+          "page": 92,
+          "score": 44.55493
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 42.191678
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 35.622391
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p091:c01",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 35.336174
+        }
+      ]
+    },
+    {
+      "id": "test-ko-01",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 29.3,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p036:c01",
+          "doc_id": "kesg_supply",
+          "page": 36,
+          "score": 0.87686
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p092:c01",
+          "doc_id": "kesg_supply",
+          "page": 92,
+          "score": 0.876847
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p213:c01",
+          "doc_id": "kesg_supply",
+          "page": 213,
+          "score": 0.875394
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p221:c02",
+          "doc_id": "kesg_supply",
+          "page": 221,
+          "score": 0.875256
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p093:c02",
+          "doc_id": "kesg_supply",
+          "page": 93,
+          "score": 0.874873
+        }
+      ]
+    },
+    {
+      "id": "test-ko-01",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 34.8,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p036:c01",
+          "doc_id": "kesg_supply",
+          "page": 36,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p092:c01",
+          "doc_id": "kesg_supply",
+          "page": 92,
+          "score": 0.032258
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.030579
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p120:c01",
+          "doc_id": "kesg_supply",
+          "page": 120,
+          "score": 0.030077
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p093:c02",
+          "doc_id": "kesg_supply",
+          "page": 93,
+          "score": 0.029274
+        }
+      ]
+    },
+    {
+      "id": "test-ko-02",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 5.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p096:c01",
+          "doc_id": "kesg_supply",
+          "page": 96,
+          "score": 73.528674
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p097:c01",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 55.047175
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p072:c01",
+          "doc_id": "kesg_supply",
+          "page": 72,
+          "score": 41.962501
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p094:c01",
+          "doc_id": "kesg_supply",
+          "page": 94,
+          "score": 41.670628
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 40.46191
+        }
+      ]
+    },
+    {
+      "id": "test-ko-02",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 25.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p096:c02",
+          "doc_id": "kesg_supply",
+          "page": 96,
+          "score": 0.9052
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p097:c01",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 0.883988
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p091:c01",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 0.882792
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p095:c03",
+          "doc_id": "kesg_supply",
+          "page": 95,
+          "score": 0.882163
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.879908
+        }
+      ]
+    },
+    {
+      "id": "test-ko-02",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 37.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p096:c01",
+          "doc_id": "kesg_supply",
+          "page": 96,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p097:c01",
+          "doc_id": "kesg_supply",
+          "page": 97,
+          "score": 0.031746
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p091:c01",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 0.029911
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p095:c02",
+          "doc_id": "kesg_supply",
+          "page": 95,
+          "score": 0.029631
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 0.029236
+        }
+      ]
+    },
+    {
+      "id": "test-ko-03",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 5.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p039:c01",
+          "doc_id": "kesg_supply",
+          "page": 39,
+          "score": 44.403139
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p102:c01",
+          "doc_id": "kesg_supply",
+          "page": 102,
+          "score": 43.751688
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p103:c01",
+          "doc_id": "kesg_supply",
+          "page": 103,
+          "score": 40.909121
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p107:c01",
+          "doc_id": "kesg_supply",
+          "page": 107,
+          "score": 24.951912
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p105:c02",
+          "doc_id": "kesg_supply",
+          "page": 105,
+          "score": 21.988355
+        }
+      ]
+    },
+    {
+      "id": "test-ko-03",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 27.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p103:c02",
+          "doc_id": "kesg_supply",
+          "page": 103,
+          "score": 0.895285
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p039:c01",
+          "doc_id": "kesg_supply",
+          "page": 39,
+          "score": 0.889964
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p111:c01",
+          "doc_id": "kesg_supply",
+          "page": 111,
+          "score": 0.882629
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p102:c01",
+          "doc_id": "kesg_supply",
+          "page": 102,
+          "score": 0.881596
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p115:c01",
+          "doc_id": "kesg_supply",
+          "page": 115,
+          "score": 0.87688
+        }
+      ]
+    },
+    {
+      "id": "test-ko-03",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 31.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p039:c01",
+          "doc_id": "kesg_supply",
+          "page": 39,
+          "score": 0.032266
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p103:c02",
+          "doc_id": "kesg_supply",
+          "page": 103,
+          "score": 0.032018
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p102:c01",
+          "doc_id": "kesg_supply",
+          "page": 102,
+          "score": 0.031514
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p107:c01",
+          "doc_id": "kesg_supply",
+          "page": 107,
+          "score": 0.029274
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p105:c02",
+          "doc_id": "kesg_supply",
+          "page": 105,
+          "score": 0.029236
+        }
+      ]
+    },
+    {
+      "id": "test-ko-04",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        41,
+        110
+      ],
+      "first_relevant_rank": 2,
+      "elapsed_ms": 5.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p227:c02",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 31.674667
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p041:c01",
+          "doc_id": "kesg_supply",
+          "page": 41,
+          "score": 22.266675
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p110:c01",
+          "doc_id": "kesg_supply",
+          "page": 110,
+          "score": 22.18533
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p113:c01",
+          "doc_id": "kesg_supply",
+          "page": 113,
+          "score": 20.321201
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p255:c01",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 19.584704
+        }
+      ]
+    },
+    {
+      "id": "test-ko-04",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        41,
+        110
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 26.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p110:c01",
+          "doc_id": "kesg_supply",
+          "page": 110,
+          "score": 0.869341
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p041:c01",
+          "doc_id": "kesg_supply",
+          "page": 41,
+          "score": 0.8635
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p111:c01",
+          "doc_id": "kesg_supply",
+          "page": 111,
+          "score": 0.858823
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p113:c02",
+          "doc_id": "kesg_supply",
+          "page": 113,
+          "score": 0.852426
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p085:c01",
+          "doc_id": "kesg_supply",
+          "page": 85,
+          "score": 0.849701
+        }
+      ]
+    },
+    {
+      "id": "test-ko-04",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        41,
+        110
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 33.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p110:c01",
+          "doc_id": "kesg_supply",
+          "page": 110,
+          "score": 0.032266
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p041:c01",
+          "doc_id": "kesg_supply",
+          "page": 41,
+          "score": 0.032258
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p255:c01",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.029644
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p085:c01",
+          "doc_id": "kesg_supply",
+          "page": 85,
+          "score": 0.029418
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p113:c01",
+          "doc_id": "kesg_supply",
+          "page": 113,
+          "score": 0.029324
+        }
+      ]
+    },
+    {
+      "id": "test-ko-05",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 4.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p117:c01",
+          "doc_id": "kesg_supply",
+          "page": 117,
+          "score": 22.221664
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p042:c01",
+          "doc_id": "kesg_supply",
+          "page": 42,
+          "score": 22.018383
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p083:c02",
+          "doc_id": "kesg_supply",
+          "page": 83,
+          "score": 21.236298
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p171:c01",
+          "doc_id": "kesg_supply",
+          "page": 171,
+          "score": 19.228854
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p121:c01",
+          "doc_id": "kesg_supply",
+          "page": 121,
+          "score": 19.219473
+        }
+      ]
+    },
+    {
+      "id": "test-ko-05",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 32.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p117:c01",
+          "doc_id": "kesg_supply",
+          "page": 117,
+          "score": 0.886966
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p042:c02",
+          "doc_id": "kesg_supply",
+          "page": 42,
+          "score": 0.884709
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.874416
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p120:c01",
+          "doc_id": "kesg_supply",
+          "page": 120,
+          "score": 0.864718
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p118:c01",
+          "doc_id": "kesg_supply",
+          "page": 118,
+          "score": 0.862907
+        }
+      ]
+    },
+    {
+      "id": "test-ko-05",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 40.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p117:c01",
+          "doc_id": "kesg_supply",
+          "page": 117,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p042:c01",
+          "doc_id": "kesg_supply",
+          "page": 42,
+          "score": 0.032002
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p121:c01",
+          "doc_id": "kesg_supply",
+          "page": 121,
+          "score": 0.03009
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p083:c02",
+          "doc_id": "kesg_supply",
+          "page": 83,
+          "score": 0.029387
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.028612
+        }
+      ]
+    },
+    {
+      "id": "test-ko-06",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 7.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p045:c01",
+          "doc_id": "kesg_supply",
+          "page": 45,
+          "score": 37.352097
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 36.313462
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p256:c01",
+          "doc_id": "kesg_supply",
+          "page": 256,
+          "score": 29.658823
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 27.325645
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p044:c01",
+          "doc_id": "kesg_supply",
+          "page": 44,
+          "score": 26.048283
+        }
+      ]
+    },
+    {
+      "id": "test-ko-06",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 33.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p045:c01",
+          "doc_id": "kesg_supply",
+          "page": 45,
+          "score": 0.880766
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 0.870418
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p132:c01",
+          "doc_id": "kesg_supply",
+          "page": 132,
+          "score": 0.863415
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p044:c01",
+          "doc_id": "kesg_supply",
+          "page": 44,
+          "score": 0.863223
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 0.85745
+        }
+      ]
+    },
+    {
+      "id": "test-ko-06",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 35.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p045:c01",
+          "doc_id": "kesg_supply",
+          "page": 45,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 0.032258
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p132:c01",
+          "doc_id": "kesg_supply",
+          "page": 132,
+          "score": 0.031025
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p044:c01",
+          "doc_id": "kesg_supply",
+          "page": 44,
+          "score": 0.03101
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 0.03101
+        }
+      ]
+    },
+    {
+      "id": "test-ko-07",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 4.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p046:c01",
+          "doc_id": "kesg_supply",
+          "page": 46,
+          "score": 28.05367
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p136:c01",
+          "doc_id": "kesg_supply",
+          "page": 136,
+          "score": 28.041826
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p030:c02",
+          "doc_id": "kesg_supply",
+          "page": 30,
+          "score": 26.069272
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p137:c02",
+          "doc_id": "kesg_supply",
+          "page": 137,
+          "score": 24.342396
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p161:c01",
+          "doc_id": "kesg_supply",
+          "page": 161,
+          "score": 20.206514
+        }
+      ]
+    },
+    {
+      "id": "test-ko-07",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 24.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p136:c01",
+          "doc_id": "kesg_supply",
+          "page": 136,
+          "score": 0.867636
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p046:c01",
+          "doc_id": "kesg_supply",
+          "page": 46,
+          "score": 0.867628
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p137:c01",
+          "doc_id": "kesg_supply",
+          "page": 137,
+          "score": 0.867093
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p047:c01",
+          "doc_id": "kesg_supply",
+          "page": 47,
+          "score": 0.861702
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 0.860145
+        }
+      ]
+    },
+    {
+      "id": "test-ko-07",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 32.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p046:c01",
+          "doc_id": "kesg_supply",
+          "page": 46,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p136:c01",
+          "doc_id": "kesg_supply",
+          "page": 136,
+          "score": 0.032522
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p137:c01",
+          "doc_id": "kesg_supply",
+          "page": 137,
+          "score": 0.031025
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p161:c01",
+          "doc_id": "kesg_supply",
+          "page": 161,
+          "score": 0.029631
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 0.029083
+        }
+      ]
+    },
+    {
+      "id": "test-ko-08",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        150
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 6.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p150:c01",
+          "doc_id": "kesg_supply",
+          "page": 150,
+          "score": 66.261347
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p151:c02",
+          "doc_id": "kesg_supply",
+          "page": 151,
+          "score": 42.953784
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p149:c02",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 40.961959
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p076:c01",
+          "doc_id": "kesg_supply",
+          "page": 76,
+          "score": 39.696158
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 37.129799
+        }
+      ]
+    },
+    {
+      "id": "test-ko-08",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        150
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 34.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p150:c02",
+          "doc_id": "kesg_supply",
+          "page": 150,
+          "score": 0.889467
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p151:c02",
+          "doc_id": "kesg_supply",
+          "page": 151,
+          "score": 0.885113
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p163:c04",
+          "doc_id": "kesg_supply",
+          "page": 163,
+          "score": 0.872383
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p149:c03",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 0.871444
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p076:c02",
+          "doc_id": "kesg_supply",
+          "page": 76,
+          "score": 0.870373
+        }
+      ]
+    },
+    {
+      "id": "test-ko-08",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        150
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 42.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p150:c02",
+          "doc_id": "kesg_supply",
+          "page": 150,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p151:c02",
+          "doc_id": "kesg_supply",
+          "page": 151,
+          "score": 0.032002
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p149:c02",
+          "doc_id": "kesg_supply",
+          "page": 149,
+          "score": 0.03031
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p163:c04",
+          "doc_id": "kesg_supply",
+          "page": 163,
+          "score": 0.03009
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p076:c01",
+          "doc_id": "kesg_supply",
+          "page": 76,
+          "score": 0.028485
+        }
+      ]
+    },
+    {
+      "id": "test-ko-09",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 10.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p176:c01",
+          "doc_id": "kesg_supply",
+          "page": 176,
+          "score": 75.972088
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p177:c01",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 73.015403
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p175:c01",
+          "doc_id": "kesg_supply",
+          "page": 175,
+          "score": 54.517552
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p174:c01",
+          "doc_id": "kesg_supply",
+          "page": 174,
+          "score": 52.017399
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p257:c02",
+          "doc_id": "kesg_supply",
+          "page": 257,
+          "score": 38.001081
+        }
+      ]
+    },
+    {
+      "id": "test-ko-09",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 37.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p176:c02",
+          "doc_id": "kesg_supply",
+          "page": 176,
+          "score": 0.910428
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p177:c02",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.882297
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p175:c02",
+          "doc_id": "kesg_supply",
+          "page": 175,
+          "score": 0.881019
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p174:c01",
+          "doc_id": "kesg_supply",
+          "page": 174,
+          "score": 0.868622
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 0.858879
+        }
+      ]
+    },
+    {
+      "id": "test-ko-09",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 45.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p176:c01",
+          "doc_id": "kesg_supply",
+          "page": 176,
+          "score": 0.032018
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p177:c02",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.032002
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p175:c02",
+          "doc_id": "kesg_supply",
+          "page": 175,
+          "score": 0.030798
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p174:c01",
+          "doc_id": "kesg_supply",
+          "page": 174,
+          "score": 0.029857
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 0.028577
+        }
+      ]
+    },
+    {
+      "id": "test-ko-10",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 4.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p055:c01",
+          "doc_id": "kesg_supply",
+          "page": 55,
+          "score": 46.488029
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p192:c01",
+          "doc_id": "kesg_supply",
+          "page": 192,
+          "score": 45.851583
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p024:c01",
+          "doc_id": "kesg_supply",
+          "page": 24,
+          "score": 31.364249
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p064:c01",
+          "doc_id": "kesg_supply",
+          "page": 64,
+          "score": 30.707247
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p258:c01",
+          "doc_id": "kesg_supply",
+          "page": 258,
+          "score": 29.671637
+        }
+      ]
+    },
+    {
+      "id": "test-ko-10",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 23.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p055:c01",
+          "doc_id": "kesg_supply",
+          "page": 55,
+          "score": 0.873109
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p192:c01",
+          "doc_id": "kesg_supply",
+          "page": 192,
+          "score": 0.869418
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p193:c01",
+          "doc_id": "kesg_supply",
+          "page": 193,
+          "score": 0.853298
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p057:c01",
+          "doc_id": "kesg_supply",
+          "page": 57,
+          "score": 0.852507
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p081:c01",
+          "doc_id": "kesg_supply",
+          "page": 81,
+          "score": 0.849133
+        }
+      ]
+    },
+    {
+      "id": "test-ko-10",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 34.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p055:c01",
+          "doc_id": "kesg_supply",
+          "page": 55,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p192:c01",
+          "doc_id": "kesg_supply",
+          "page": 192,
+          "score": 0.032258
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p193:c01",
+          "doc_id": "kesg_supply",
+          "page": 193,
+          "score": 0.031025
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p081:c01",
+          "doc_id": "kesg_supply",
+          "page": 81,
+          "score": 0.029274
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p057:c01",
+          "doc_id": "kesg_supply",
+          "page": 57,
+          "score": 0.029139
+        }
+      ]
+    },
+    {
+      "id": "test-ko-11",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 5.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p232:c02",
+          "doc_id": "kesg_supply",
+          "page": 232,
+          "score": 30.278133
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p227:c02",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 18.593545
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p079:c01",
+          "doc_id": "kesg_supply",
+          "page": 79,
+          "score": 15.080208
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p233:c01",
+          "doc_id": "kesg_supply",
+          "page": 233,
+          "score": 14.521267
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p231:c01",
+          "doc_id": "kesg_supply",
+          "page": 231,
+          "score": 14.299473
+        }
+      ]
+    },
+    {
+      "id": "test-ko-11",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 27.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p008:c01",
+          "doc_id": "kesg_supply",
+          "page": 8,
+          "score": 0.834874
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p237:c02",
+          "doc_id": "kesg_supply",
+          "page": 237,
+          "score": 0.833017
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p020:c02",
+          "doc_id": "kesg_supply",
+          "page": 20,
+          "score": 0.830276
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p211:c01",
+          "doc_id": "kesg_supply",
+          "page": 211,
+          "score": 0.827568
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p006:c02",
+          "doc_id": "kesg_supply",
+          "page": 6,
+          "score": 0.825025
+        }
+      ]
+    },
+    {
+      "id": "test-ko-11",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 33.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p079:c01",
+          "doc_id": "kesg_supply",
+          "page": 79,
+          "score": 0.029762
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p232:c02",
+          "doc_id": "kesg_supply",
+          "page": 232,
+          "score": 0.029727
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p087:c03",
+          "doc_id": "kesg_supply",
+          "page": 87,
+          "score": 0.027864
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p061:c02",
+          "doc_id": "kesg_supply",
+          "page": 61,
+          "score": 0.025645
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p237:c01",
+          "doc_id": "kesg_supply",
+          "page": 237,
+          "score": 0.025579
+        }
+      ]
+    },
+    {
+      "id": "test-ko-12",
+      "split": "test",
+      "language": "ko",
+      "method": "bm25",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 9.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 27.137736
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p177:c01",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 20.237056
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p134:c01",
+          "doc_id": "kesg_supply",
+          "page": 134,
+          "score": 17.052806
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p045:c01",
+          "doc_id": "kesg_supply",
+          "page": 45,
+          "score": 17.041426
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p009:c02",
+          "doc_id": "kesg_supply",
+          "page": 9,
+          "score": 17.003412
+        }
+      ]
+    },
+    {
+      "id": "test-ko-12",
+      "split": "test",
+      "language": "ko",
+      "method": "dense",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 38.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 0.856088
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p009:c02",
+          "doc_id": "kesg_supply",
+          "page": 9,
+          "score": 0.854542
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p177:c01",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.852918
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 0.851153
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p258:c01",
+          "doc_id": "kesg_supply",
+          "page": 258,
+          "score": 0.849379
+        }
+      ]
+    },
+    {
+      "id": "test-ko-12",
+      "split": "test",
+      "language": "ko",
+      "method": "hybrid",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 53.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 0.032787
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p177:c01",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.032002
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p009:c02",
+          "doc_id": "kesg_supply",
+          "page": 9,
+          "score": 0.031514
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 0.03055
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p131:c01",
+          "doc_id": "kesg_supply",
+          "page": 131,
+          "score": 0.029412
+        }
+      ]
+    },
+    {
+      "id": "test-en-01",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 3.8,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 38.779722
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p004:c01",
+          "doc_id": "dorco_profile",
+          "page": 4,
+          "score": 28.73149
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 27.535472
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p006:c01",
+          "doc_id": "dorco_profile",
+          "page": 6,
+          "score": 23.677443
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p011:c03",
+          "doc_id": "kesg_supply",
+          "page": 11,
+          "score": 22.640843
+        }
+      ]
+    },
+    {
+      "id": "test-en-01",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 55.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.807957
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.791044
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.788514
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p230:c01",
+          "doc_id": "kesg_supply",
+          "page": 230,
+          "score": 0.784915
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p229:c02",
+          "doc_id": "kesg_supply",
+          "page": 229,
+          "score": 0.784337
+        }
+      ]
+    },
+    {
+      "id": "test-en-01",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        36,
+        92
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 50.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p011:c03",
+          "doc_id": "kesg_supply",
+          "page": 11,
+          "score": 0.030303
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p227:c01",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 0.028219
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.027826
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p089:c03",
+          "doc_id": "kesg_supply",
+          "page": 89,
+          "score": 0.026709
+        }
+      ]
+    },
+    {
+      "id": "test-en-02",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        94
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 3.5,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 23.251814
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 20.188102
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p016:c02",
+          "doc_id": "dorco_profile",
+          "page": 16,
+          "score": 17.111045
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p010:c01",
+          "doc_id": "dorco_profile",
+          "page": 10,
+          "score": 16.306927
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 16.0261
+        }
+      ]
+    },
+    {
+      "id": "test-en-02",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        94
+      ],
+      "first_relevant_rank": 5,
+      "elapsed_ms": 33.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 0.807927
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.805285
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.794864
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p009:c02",
+          "doc_id": "kesg_supply",
+          "page": 9,
+          "score": 0.789608
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p094:c01",
+          "doc_id": "kesg_supply",
+          "page": 94,
+          "score": 0.789419
+        }
+      ]
+    },
+    {
+      "id": "test-en-02",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        94
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 42.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p016:c02",
+          "doc_id": "dorco_profile",
+          "page": 16,
+          "score": 0.029762
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p217:c01",
+          "doc_id": "kesg_supply",
+          "page": 217,
+          "score": 0.027783
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p014:c01",
+          "doc_id": "dorco_profile",
+          "page": 14,
+          "score": 0.027242
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p254:c02",
+          "doc_id": "kesg_supply",
+          "page": 254,
+          "score": 0.027032
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.026709
+        }
+      ]
+    },
+    {
+      "id": "test-en-03",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 3.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 27.657252
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 23.022824
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 19.037538
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 17.950531
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p008:c01",
+          "doc_id": "dorco_profile",
+          "page": 8,
+          "score": 16.662519
+        }
+      ]
+    },
+    {
+      "id": "test-en-03",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 41.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p107:c01",
+          "doc_id": "kesg_supply",
+          "page": 107,
+          "score": 0.794966
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p015:c02",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 0.791162
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.790091
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p009:c01",
+          "doc_id": "dorco_profile",
+          "page": 9,
+          "score": 0.789971
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.788637
+        }
+      ]
+    },
+    {
+      "id": "test-en-03",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 38.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.031498
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p107:c01",
+          "doc_id": "kesg_supply",
+          "page": 107,
+          "score": 0.028589
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p008:c01",
+          "doc_id": "dorco_profile",
+          "page": 8,
+          "score": 0.027972
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.025942
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p101:c01",
+          "doc_id": "kesg_supply",
+          "page": 101,
+          "score": 0.025342
+        }
+      ]
+    },
+    {
+      "id": "test-en-04",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 2.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 22.594495
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p004:c01",
+          "doc_id": "dorco_profile",
+          "page": 4,
+          "score": 21.822914
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p010:c01",
+          "doc_id": "dorco_profile",
+          "page": 10,
+          "score": 18.596443
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 17.03847
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p006:c01",
+          "doc_id": "dorco_profile",
+          "page": 6,
+          "score": 15.840238
+        }
+      ]
+    },
+    {
+      "id": "test-en-04",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 30.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.833849
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.815033
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p095:c01",
+          "doc_id": "kesg_supply",
+          "page": 95,
+          "score": 0.81372
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p089:c03",
+          "doc_id": "kesg_supply",
+          "page": 89,
+          "score": 0.811575
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.811283
+        }
+      ]
+    },
+    {
+      "id": "test-en-04",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        37,
+        40,
+        108
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 35.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p089:c03",
+          "doc_id": "kesg_supply",
+          "page": 89,
+          "score": 0.028612
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.028309
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p004:c02",
+          "doc_id": "dorco_profile",
+          "page": 4,
+          "score": 0.027212
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p003:c01",
+          "doc_id": "dorco_profile",
+          "page": 3,
+          "score": 0.024541
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p028:c01",
+          "doc_id": "dorco_profile",
+          "page": 28,
+          "score": 0.024449
+        }
+      ]
+    },
+    {
+      "id": "test-en-05",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 3.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 18.86799
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 18.490658
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p010:c01",
+          "doc_id": "dorco_profile",
+          "page": 10,
+          "score": 18.269576
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p011:c03",
+          "doc_id": "kesg_supply",
+          "page": 11,
+          "score": 15.658578
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p015:c01",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 14.911324
+        }
+      ]
+    },
+    {
+      "id": "test-en-05",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 29.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.791491
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p221:c02",
+          "doc_id": "kesg_supply",
+          "page": 221,
+          "score": 0.791265
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p177:c03",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.777129
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p011:c03",
+          "doc_id": "kesg_supply",
+          "page": 11,
+          "score": 0.775995
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p229:c02",
+          "doc_id": "kesg_supply",
+          "page": 229,
+          "score": 0.774232
+        }
+      ]
+    },
+    {
+      "id": "test-en-05",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        42,
+        117
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 29.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.032018
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p011:c03",
+          "doc_id": "kesg_supply",
+          "page": 11,
+          "score": 0.030769
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.028595
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p118:c02",
+          "doc_id": "kesg_supply",
+          "page": 118,
+          "score": 0.027826
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p014:c01",
+          "doc_id": "dorco_profile",
+          "page": 14,
+          "score": 0.027783
+        }
+      ]
+    },
+    {
+      "id": "test-en-06",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 2.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 36.611318
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 27.164109
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 21.634653
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 21.62988
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p010:c01",
+          "doc_id": "dorco_profile",
+          "page": 10,
+          "score": 17.836719
+        }
+      ]
+    },
+    {
+      "id": "test-en-06",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 27.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p135:c01",
+          "doc_id": "kesg_supply",
+          "page": 135,
+          "score": 0.787786
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.784912
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p133:c03",
+          "doc_id": "kesg_supply",
+          "page": 133,
+          "score": 0.78141
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 0.780591
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.780081
+        }
+      ]
+    },
+    {
+      "id": "test-en-06",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        45,
+        134
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 32.2,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.032522
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "score": 0.031514
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p133:c03",
+          "doc_id": "kesg_supply",
+          "page": 133,
+          "score": 0.028125
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.0272
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p021:c01",
+          "doc_id": "dorco_profile",
+          "page": 21,
+          "score": 0.02411
+        }
+      ]
+    },
+    {
+      "id": "test-en-07",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 2.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 35.980194
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 11.102545
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 10.336176
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p218:c02",
+          "doc_id": "kesg_supply",
+          "page": 218,
+          "score": 10.243765
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p022:c01",
+          "doc_id": "dorco_profile",
+          "page": 22,
+          "score": 10.177891
+        }
+      ]
+    },
+    {
+      "id": "test-en-07",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": 1,
+      "elapsed_ms": 28.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p046:c01",
+          "doc_id": "kesg_supply",
+          "page": 46,
+          "score": 0.7865
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p136:c01",
+          "doc_id": "kesg_supply",
+          "page": 136,
+          "score": 0.785881
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p133:c03",
+          "doc_id": "kesg_supply",
+          "page": 133,
+          "score": 0.785111
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p127:c01",
+          "doc_id": "kesg_supply",
+          "page": 127,
+          "score": 0.780255
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p161:c01",
+          "doc_id": "kesg_supply",
+          "page": 161,
+          "score": 0.779867
+        }
+      ]
+    },
+    {
+      "id": "test-en-07",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        46,
+        136
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 36.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p218:c02",
+          "doc_id": "kesg_supply",
+          "page": 218,
+          "score": 0.030536
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p161:c01",
+          "doc_id": "kesg_supply",
+          "page": 161,
+          "score": 0.029469
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.028992
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p012:c03",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.02886
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p133:c03",
+          "doc_id": "kesg_supply",
+          "page": 133,
+          "score": 0.027501
+        }
+      ]
+    },
+    {
+      "id": "test-en-08",
+      "split": "test",
+      "language": "en",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 4.4,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 48.510298
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 33.844581
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p018:c01",
+          "doc_id": "dorco_profile",
+          "page": 18,
+          "score": 30.763545
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 23.903392
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p016:c01",
+          "doc_id": "dorco_profile",
+          "page": 16,
+          "score": 22.983651
+        }
+      ]
+    },
+    {
+      "id": "test-en-08",
+      "split": "test",
+      "language": "en",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 32.0,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.827698
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p014:c01",
+          "doc_id": "dorco_profile",
+          "page": 14,
+          "score": 0.809662
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.809282
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p015:c02",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 0.808773
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p021:c02",
+          "doc_id": "dorco_profile",
+          "page": 21,
+          "score": 0.80497
+        }
+      ]
+    },
+    {
+      "id": "test-en-08",
+      "split": "test",
+      "language": "en",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        176,
+        177
+      ],
+      "first_relevant_rank": 4,
+      "elapsed_ms": 34.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p012:c02",
+          "doc_id": "kesg_supply",
+          "page": 12,
+          "score": 0.031778
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.030282
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p015:c02",
+          "doc_id": "dorco_profile",
+          "page": 15,
+          "score": 0.028125
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p177:c03",
+          "doc_id": "kesg_supply",
+          "page": 177,
+          "score": 0.026901
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p175:c03",
+          "doc_id": "kesg_supply",
+          "page": 175,
+          "score": 0.02642
+        }
+      ]
+    },
+    {
+      "id": "test-vi-01",
+      "split": "test",
+      "language": "vi",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 5.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 19.603336
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p228:c01",
+          "doc_id": "kesg_supply",
+          "page": 228,
+          "score": 12.784855
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p024:c01",
+          "doc_id": "kesg_supply",
+          "page": 24,
+          "score": 11.694256
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 11.404446
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p023:c01",
+          "doc_id": "kesg_supply",
+          "page": 23,
+          "score": 9.801227
+        }
+      ]
+    },
+    {
+      "id": "test-vi-01",
+      "split": "test",
+      "language": "vi",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 34.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.823974
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p222:c02",
+          "doc_id": "kesg_supply",
+          "page": 222,
+          "score": 0.823534
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p101:c02",
+          "doc_id": "kesg_supply",
+          "page": 101,
+          "score": 0.817172
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p061:c03",
+          "doc_id": "kesg_supply",
+          "page": 61,
+          "score": 0.815957
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.815661
+        }
+      ]
+    },
+    {
+      "id": "test-vi-01",
+      "split": "test",
+      "language": "vi",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        96
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 32.9,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.027032
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p213:c01",
+          "doc_id": "kesg_supply",
+          "page": 213,
+          "score": 0.025894
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p090:c01",
+          "doc_id": "kesg_supply",
+          "page": 90,
+          "score": 0.02473
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p227:c02",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 0.023528
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p228:c02",
+          "doc_id": "kesg_supply",
+          "page": 228,
+          "score": 0.023478
+        }
+      ]
+    },
+    {
+      "id": "test-vi-02",
+      "split": "test",
+      "language": "vi",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 5.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 21.598363
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p091:c02",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 19.926989
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p022:c01",
+          "doc_id": "kesg_supply",
+          "page": 22,
+          "score": 14.781576
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p228:c01",
+          "doc_id": "kesg_supply",
+          "page": 228,
+          "score": 14.331328
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p007:c01",
+          "doc_id": "kesg_supply",
+          "page": 7,
+          "score": 14.257416
+        }
+      ]
+    },
+    {
+      "id": "test-vi-02",
+      "split": "test",
+      "language": "vi",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": 4,
+      "elapsed_ms": 31.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.829965
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p255:c02",
+          "doc_id": "kesg_supply",
+          "page": 255,
+          "score": 0.828186
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p034:c02",
+          "doc_id": "kesg_supply",
+          "page": 34,
+          "score": 0.826504
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p102:c01",
+          "doc_id": "kesg_supply",
+          "page": 102,
+          "score": 0.825804
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p176:c02",
+          "doc_id": "kesg_supply",
+          "page": 176,
+          "score": 0.825689
+        }
+      ]
+    },
+    {
+      "id": "test-vi-02",
+      "split": "test",
+      "language": "vi",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        39,
+        102,
+        103
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 33.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p016:c02",
+          "doc_id": "kesg_supply",
+          "page": 16,
+          "score": 0.028298
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p075:c03",
+          "doc_id": "kesg_supply",
+          "page": 75,
+          "score": 0.025098
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p115:c02",
+          "doc_id": "kesg_supply",
+          "page": 115,
+          "score": 0.023793
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p228:c02",
+          "doc_id": "kesg_supply",
+          "page": 228,
+          "score": 0.023113
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p111:c01",
+          "doc_id": "kesg_supply",
+          "page": 111,
+          "score": 0.022254
+        }
+      ]
+    },
+    {
+      "id": "test-vi-03",
+      "split": "test",
+      "language": "vi",
+      "method": "bm25",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 4.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p022:c01",
+          "doc_id": "kesg_supply",
+          "page": 22,
+          "score": 15.407546
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p007:c02",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 14.526258
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p024:c01",
+          "doc_id": "kesg_supply",
+          "page": 24,
+          "score": 12.875904
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p227:c02",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 11.986289
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p091:c02",
+          "doc_id": "kesg_supply",
+          "page": 91,
+          "score": 11.859612
+        }
+      ]
+    },
+    {
+      "id": "test-vi-03",
+      "split": "test",
+      "language": "vi",
+      "method": "dense",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 29.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p052:c02",
+          "doc_id": "kesg_supply",
+          "page": 52,
+          "score": 0.83266
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p205:c03",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.82861
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p204:c02",
+          "doc_id": "kesg_supply",
+          "page": 204,
+          "score": 0.824788
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p162:c02",
+          "doc_id": "kesg_supply",
+          "page": 162,
+          "score": 0.823263
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p258:c01",
+          "doc_id": "kesg_supply",
+          "page": 258,
+          "score": 0.822883
+        }
+      ]
+    },
+    {
+      "id": "test-vi-03",
+      "split": "test",
+      "language": "vi",
+      "method": "hybrid",
+      "expected_doc_id": "kesg_supply",
+      "expected_pages": [
+        55,
+        192
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 38.7,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kesg_supply:p024:c01",
+          "doc_id": "kesg_supply",
+          "page": 24,
+          "score": 0.027109
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kesg_supply:p130:c01",
+          "doc_id": "kesg_supply",
+          "page": 130,
+          "score": 0.024056
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kesg_supply:p227:c02",
+          "doc_id": "kesg_supply",
+          "page": 227,
+          "score": 0.023077
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p205:c02",
+          "doc_id": "kesg_supply",
+          "page": 205,
+          "score": 0.022105
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p131:c02",
+          "doc_id": "kesg_supply",
+          "page": 131,
+          "score": 0.021369
+        }
+      ]
+    },
+    {
+      "id": "test-vi-04",
+      "split": "test",
+      "language": "vi",
+      "method": "bm25",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 5.1,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p007:c01",
+          "doc_id": "dorco_profile",
+          "page": 7,
+          "score": 20.206859
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p021:c01",
+          "doc_id": "dorco_profile",
+          "page": 21,
+          "score": 13.676943
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p029:c01",
+          "doc_id": "dorco_profile",
+          "page": 29,
+          "score": 12.724785
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kesg_supply:p228:c01",
+          "doc_id": "kesg_supply",
+          "page": 228,
+          "score": 11.618653
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p022:c01",
+          "doc_id": "kesg_supply",
+          "page": 22,
+          "score": 11.184805
+        }
+      ]
+    },
+    {
+      "id": "test-vi-04",
+      "split": "test",
+      "language": "vi",
+      "method": "dense",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": 2,
+      "elapsed_ms": 31.3,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.812667
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p032:c01",
+          "doc_id": "dorco_profile",
+          "page": 32,
+          "score": 0.811404
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p013:c01",
+          "doc_id": "dorco_profile",
+          "page": 13,
+          "score": 0.808366
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.802652
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kesg_supply:p101:c02",
+          "doc_id": "kesg_supply",
+          "page": 101,
+          "score": 0.802511
+        }
+      ]
+    },
+    {
+      "id": "test-vi-04",
+      "split": "test",
+      "language": "vi",
+      "method": "hybrid",
+      "expected_doc_id": "dorco_profile",
+      "expected_pages": [
+        31,
+        32
+      ],
+      "first_relevant_rank": null,
+      "elapsed_ms": 35.6,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "dorco_profile:p013:c01",
+          "doc_id": "dorco_profile",
+          "page": 13,
+          "score": 0.02886
+        },
+        {
+          "rank": 2,
+          "chunk_id": "dorco_profile:p012:c01",
+          "doc_id": "dorco_profile",
+          "page": 12,
+          "score": 0.027971
+        },
+        {
+          "rank": 3,
+          "chunk_id": "dorco_profile:p021:c01",
+          "doc_id": "dorco_profile",
+          "page": 21,
+          "score": 0.027921
+        },
+        {
+          "rank": 4,
+          "chunk_id": "dorco_profile:p029:c01",
+          "doc_id": "dorco_profile",
+          "page": 29,
+          "score": 0.02739
+        },
+        {
+          "rank": 5,
+          "chunk_id": "dorco_profile:p030:c01",
+          "doc_id": "dorco_profile",
+          "page": 30,
+          "score": 0.027032
+        }
+      ]
+    }
+  ],
+  "unanswerable_guard_cases": [
+    {
+      "id": "test-unknown-ko",
+      "split": "test",
+      "language": "ko",
+      "guard": "private_company_facts",
+      "guard_fired": true
+    },
+    {
+      "id": "test-unknown-en",
+      "split": "test",
+      "language": "en",
+      "guard": "private_company_facts",
+      "guard_fired": true
+    },
+    {
+      "id": "test-injection-ko",
+      "split": "test",
+      "language": "ko",
+      "guard": "instruction_override",
+      "guard_fired": true
+    }
+  ],
+  "limitations": [
+    "Small author-created benchmark; not independent supplier validation",
+    "Page-level relevance labels; no automatic answer entailment score",
+    "mrr field is MRR@k; relevant pages below retrieval cutoff receive zero",
+    "Query guard coverage is reported separately from retrieval metrics"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "documents": [
+    {
+      "id": "dorco_profile",
+      "title": "DORCO company catalog",
+      "url": "https://www.dorcofrance.com/resource/pdf/dorco-company-catalog.pdf",
+      "expected_pages": 34,
+      "kind": "company_profile",
+      "license": "Public download; redistribution license not confirmed",
+      "pages": 34,
+      "chunks": 37,
+      "sha256": "9a7175ca3310bd019c34691aaa701e24c6b0a1d199b6dbab8b82665e3abe6697"
+    },
+    {
+      "id": "kesg_supply",
+      "title": "공급망 대응 K-ESG 가이드라인",
+      "url": "https://k-esg.org/uploads/post/2024/12/b36cd7d6e42fc618d2ac9fcf01966d0e.pdf",
+      "expected_pages": 259,
+      "kind": "public_guideline",
+      "license": "Public download; redistribution license not confirmed",
+      "pages": 259,
+      "chunks": 475,
+      "sha256": "828a754cb6b77216107e14313e5f9685da5b8544b30ed3faa75cea29f25f16cd"
+    }
+  ],
+  "total_pages": 293,
+  "total_chunks": 512,
+  "chunking": {
+    "unit": "page",
+    "max_characters": 900,
+    "overlap_characters": 180,
+    "normalization": "U+F613 PDF space glyph replaced by space; tabs/spaces collapsed"
+  },
+  "embedding_dimension": 384,
+  "vector_dtype": "float32",
+  "normalized": true,
+  "embedding_token_limit": 512,
+  "chunks_above_embedding_token_limit": 6,
+  "maximum_chunk_tokens": 530
+}

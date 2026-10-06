@@ -1,0 +1,63 @@
+{
+  "scope": "세 가지 개별 로컬 생성 시연; 정량 답변 정확도 평가가 아님",
+  "prior_attempts": "초기 형식 실패 후 출력 규약·파서 수정; 원문은 runtime에만 보관",
+  "cases": [
+    {
+      "language": "ko",
+      "question": "화학물질 관리 점검을 준비할 때 어떤 대장과 조사서를 모아야 하나요?",
+      "status": "generated",
+      "answer": "화학물질관리대장에는 화학물질 관리대장, 화학물질 보관·저장 관리대장, 화학물질 운반 관리대장, 외부인 출입 관리대장 등이 있다.",
+      "retrieval_ms": 51.5,
+      "generation_ms": 67982.2,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "warnings": [
+        "Citation IDs and nonempty format checked; semantic support is not automatically verified"
+      ],
+      "citations": [
+        {
+          "chunk_id": "kesg_supply:p103:c02",
+          "doc_id": "kesg_supply",
+          "page": 103,
+          "url": "https://k-esg.org/uploads/post/2024/12/b36cd7d6e42fc618d2ac9fcf01966d0e.pdf"
+        }
+      ],
+      "manual_review": "원문 페이지의 관리대장 목록과 일치하나 질문의 조사서 부분에는 답하지 않음"
+    },
+    {
+      "language": "en",
+      "question": "What environmental initiatives does DORCO describe in its ESG catalog?",
+      "status": "generated",
+      "answer": "Our ESG commitments include creating eco-friendly products, adopting paper packaging, ensuring worker safety, banning conflict minerals and child labor, upholding ethical, transparent subcontracting practices, and setting targets to reduce carbon emissions.",
+      "retrieval_ms": 38.9,
+      "generation_ms": 33216.5,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "warnings": [
+        "Citation IDs and nonempty format checked; semantic support is not automatically verified"
+      ],
+      "citations": [
+        {
+          "chunk_id": "dorco_profile:p031:c01",
+          "doc_id": "dorco_profile",
+          "page": 31,
+          "url": "https://www.dorcofrance.com/resource/pdf/dorco-company-catalog.pdf"
+        }
+      ],
+      "manual_review": "인용 p31의 ESG 약속과 대조; 환경 질문보다 넓은 항목을 답함"
+    },
+    {
+      "language": "vi",
+      "question": "Theo hướng dẫn K-ESG, cần thu thập hồ sơ nào để kiểm tra quản lý hóa chất?",
+      "status": "failed",
+      "answer": "",
+      "retrieval_ms": 27.9,
+      "generation_ms": 52899.0,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "warnings": [
+        "Citation IDs and nonempty format checked; semantic support is not automatically verified",
+        "Generation failed: ValueError: Requested Latin-script language but generated CJK text"
+      ],
+      "citations": [],
+      "manual_review": "중국어 출력으로 언어 검사 실패. 베트남어 성공으로 보고하지 않음"
+    }
+  ]
+}
