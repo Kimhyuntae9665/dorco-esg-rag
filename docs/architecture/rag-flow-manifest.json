@@ -1,42 +1,42 @@
 {
   "numpy": {
     "name": "NumPy",
-    "path": "assets/numpy.svg",
+    "path": "numpy.svg",
     "source": "https://raw.githubusercontent.com/numpy/numpy/6afb580a7b4a69512eea23a8e79ad2f3806612bc/branding/logo/logomark/numpylogoicon.svg",
     "sha256": "b6cfaa3cef2c2629013fdbeec493df2e281b10079c3f5210da60904d89e442f8",
     "license_note": "Official NumPy standalone full-color logomark; trademark retained; preserve proportions and colors."
   },
   "qwen": {
     "name": "Qwen2.5",
-    "path": "assets/qwen.png",
+    "path": "qwen.png",
     "source": "https://raw.githubusercontent.com/QwenLM/qwenlm.github.io/1f89f8c81adb85e3808f9cc15180ab1fdacbb900/static/favicon.png",
     "sha256": "a98b91d365fba5f08370d8d8755aa60692be0e6c64124cc33bb282c9fb2432cb",
     "license_note": "Official Qwen team blog favicon, family symbol reused for Qwen2.5-1.5B-Instruct; not Qwen3; trademark retained, artwork license not separately established."
   },
   "python": {
     "name": "Python",
-    "path": "assets/python.svg",
+    "path": "python.svg",
     "source": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
     "sha256": "baec8662a1461c2cacc326b54d2727cb2f1ce07ba02d00f5b826d035104f649f",
     "license_note": "PSF trademark; unchanged official two-snakes device; identifies actual Python usage, no endorsement."
   },
   "pytorch": {
     "name": "PyTorch",
-    "path": "assets/pytorch.svg",
+    "path": "pytorch.svg",
     "sha256": "5d95234008041810d197e9491aee4df95a9346d3ea8540d794174eadc746274e",
     "source": "https://raw.githubusercontent.com/pytorch/pytorch/dafd8da85d6d3d58b55204e9485a4e4e32f3c36c/docs/source/_static/img/pytorch-logo-flame.svg",
     "license_note": "Official standalone flame, PyTorch trademark; unchanged artwork. Code BSD-3-Clause does not itself grant logo trademark rights."
   },
   "huggingface": {
     "name": "Hugging Face",
-    "path": "assets/huggingface.svg",
+    "path": "huggingface.svg",
     "sha256": "942cad1ccda905ac5a659dfd2d78b344fccfb84a8a3ac3721e08f488205638a0",
     "source": "https://huggingface.co/datasets/huggingface/brand-assets/resolve/d6f77b465eb4e0e48355342f99666e53946e5ecc/hf-logo.svg",
     "license_note": "Official standalone HF family mark. Represents the used ecosystem libraries SentenceTransformers, Transformers, huggingface-hub; model identities are labeled separately. Trademark retained; no endorsement."
   },
   "pymupdf_candidate": {
     "name": "PyMuPDF",
-    "path": "assets/pymupdf_candidate.svg",
+    "path": "pymupdf_candidate.svg",
     "sha256": "059d9b55e4970059418c026b259ad9666eeafc227f655cdd219fb29b559b0fab",
     "source": "https://raw.githubusercontent.com/pymupdf/PyMuPDF/d46f1bb4f69d2fc8115e65df6e9aa60c67b987e8/docs/_static/sidebar-logo-light.svg",
     "license_note": "Official standalone sidebar character symbol; intrinsic Py lettering is part of the original mark, not a full wordmark. Artwork unmodified; logo trademark retained."
@@ -56,7 +56,7 @@
     "A": "Question plus top-3 chunk text[:700] and chunk IDs assembled into prompt",
     "G": "Local Qwen2.5-1.5B-Instruct generation followed by citation ID-to-source mapping",
     "qwen_family_mark_reused": true,
-    "sha256": "aa07263665e9bdc53be8e8a29a85c1b4b7e0dc8d2c6b2c3293f636a1497d23a4",
+    "sha256": "9e897d0c00e87f604b4bc6c1167b8bc8ce5373eb1593c70ab54101d8a02cde86",
     "renderer": "Existing CairoSVG",
     "diagram_requirement": "User explicitly requested RAG labels and working boundaries inside schematic; descriptions placed outside white logo cards"
   }

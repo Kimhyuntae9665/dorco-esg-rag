@@ -1,0 +1,16 @@
+{
+  "question": "화학물질 관리대장에는 어떤 종류가 있나요?",
+  "answer": "화학물질관리대장에는 화학물질(제조, 수입, 사용, 판매) 관리대장, 화학물질 보관·저장 관리대장, 화학물질 운반 관리대장, 외부인 출입 관리대장 등이 있다.",
+  "answer_meta": "검색 310 ms\n생성 63.0 s\n인용 ID 검사 완료",
+  "warning": "인용 ID 검사는 의미의 정확성을 보장하지 않습니다. 원문 확인이 필요합니다.",
+  "source_url": "https://k-esg.org/uploads/post/2024/12/b36cd7d6e42fc618d2ac9fcf01966d0e.pdf#page=103",
+  "manual_review": "관리대장 목록을 K-ESG 원문 103쪽과 대조: 제조·수입·사용·판매, 보관·저장, 운반, 외부인 출입 관리대장 모두 일치",
+  "scope": "새 질문 1건의 실제 실행; 기존 24문항 검색 평가에 합산하지 않음",
+  "environment": "Local CPU, Qwen/Qwen2.5-1.5B-Instruct, Dense multilingual-E5-small retrieval, all public documents",
+  "generation_seconds_displayed": 63.0,
+  "screenshots": [
+    "screenshots/04-ledger-answer.jpg",
+    "screenshots/04-ledger-answer-detail.jpg",
+    "screenshots/04-ledger-source-detail.jpg"
+  ]
+}
